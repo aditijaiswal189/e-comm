@@ -11,7 +11,7 @@ console.log(console.error("error"));
     }
 }
 
-export async function IndividualProducts({id}){
+export async function individualProducts({id}){
     console.log( "ddd",id, "id")
     try{
 const response = await fetch (`https://fakestoreapi.com/products/${id}`)
@@ -21,3 +21,4 @@ return data
 console.log(console.log("error"))
     }
 }
+
