@@ -1,6 +1,9 @@
 import { useProductState } from "../lib/productContext";
 export function Cart() {
   const { state, dispatch } = useProductState();
+  const handleIncreaseQuantity = (id) => {
+    dispatch({ type: "INCREASE_QUANTITY", payload: id });
+  };
   const handleRemoveFromCart = (id) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
   };
@@ -32,7 +35,10 @@ export function Cart() {
                   <div>{item.price}</div>
                 </div>
                 <div className="flex flex-row gap-4 text-2xl">
-                  <button className="rounded-3xl bg-blue-400 w-8 text-center">
+                  <button
+                    className="rounded-3xl bg-blue-400 w-8 text-center"
+                    onClick={(id) => handleIncreaseQuantity(id)}
+                  >
                     +
                   </button>
                   <span>Quantity</span>

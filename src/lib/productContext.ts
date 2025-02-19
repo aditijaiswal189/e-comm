@@ -28,7 +28,8 @@ return state;
             case "REMOVE_FROM_WISHLIST":
                 return {...state, wishlist:[...state.wishlist.filter((item)=>item.id !==action.payload)]};
         case "INCREASE_QUANTITY":
-            return{...state, cart:[...state.cart.map((item)=>item.id ===action.payload.id? {...item, quantity:item.quantity+1}:item)]};
+            // const updatedCart = state?.cart.map((item)=> item.id === action.payload )
+            return{...state, cart:[...state.cart.map((item)=>item.id ===action.payload? {...item, quantity:item.quantity+1}:item)]};
         default:
             return state;
     }
